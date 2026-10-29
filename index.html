@@ -205,7 +205,16 @@ section{padding-block:clamp(64px,9vw,112px)}
 .hero .lead{font-size:1.04rem;color:#4F4C48}
 .hero .btns{margin-top:6px}
 .portrait{position:relative;margin:0;justify-self:center;display:grid;gap:6px;justify-items:center;width:min(100%,520px)}
-.portrait::before{content:"";position:absolute;left:8%;right:8%;top:6%;bottom:14%;border-radius:50%;background:radial-gradient(closest-side,rgba(20,20,20,.10),rgba(20,20,20,0));filter:blur(8px);z-index:-1}
+.portrait::before{content:"";position:absolute;left:-8%;right:-8%;top:-4%;bottom:6%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.75),rgba(255,255,255,0) 72%);z-index:-1}
+.portrait::after{content:"";position:absolute;left:14%;right:14%;top:10%;bottom:20%;border-radius:50%;background:radial-gradient(closest-side,rgba(60,50,45,.10),rgba(60,50,45,0));filter:blur(18px);z-index:-1}
+.portrait img{animation:portIn 1.4s .15s var(--ease) both}
+.portrait figcaption{animation:rise .8s .9s var(--ease) both}
+.hero h1 span{animation:rise .9s var(--ease) both}
+.hero h1 span:nth-child(2){animation-delay:.12s}
+.hero h1 span:nth-child(3){animation-delay:.24s}
+.hero .lead{animation:rise .9s .38s var(--ease) both}
+.hero .btns{animation:rise .9s .5s var(--ease) both}
+@keyframes portIn{from{opacity:0;transform:translateY(18px) scale(1.03);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .portrait img{width:100%;height:auto;display:block}
 .portrait figcaption{position:relative;margin-top:-18px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center}
 @media (max-width:820px){
@@ -250,6 +259,9 @@ section{padding-block:clamp(64px,9vw,112px)}
 .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,90px);align-items:start;position:relative}
 .about-grid p+p{margin-top:16px}
 .about .txt{color:#45423E;max-width:60ch}
+.about-head{display:grid;gap:22px;align-content:start}
+.about-tag{font-family:var(--f-head);font-weight:300;font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.45;letter-spacing:.06em;color:var(--ink);max-width:22ch}
+.about-quote{margin-top:28px!important;padding-top:22px;border-top:1px solid var(--ink);font-family:var(--f-head);font-weight:300;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.6;color:var(--ink)}
 @media (max-width:820px){.about-grid{grid-template-columns:1fr}}
 
 /* opinie */
@@ -485,14 +497,14 @@ body[data-page="kontakt"]{--bar:0px}
       <div class="wrap hero-grid">
         <div class="hero-in">
           <h1><span>Naturalny</span> <span>makijaż permanentny</span> <span>w Tarnowie</span></h1>
-          <p class="lead">Brwi, usta i kreski. Od 12 lat tworzę w Tarnowie makijaż, który podkreśla urodę, a nie krzyczy. Kształt i kolor dobieram do rysów twarzy, tak żeby efekt wyglądał jak Twój własny.</p>
+          <p class="lead">Brwi, usta i kreski. Od 12 lat tworzę makijaż permanentny w Tarnowie, kierując się precyzją, harmonią i indywidualnym podejściem do urody.</p>
           <div class="btns">
             <a class="btn" href="#kontakt" data-go="kontakt">Umów bezpłatną konsultację</a>
             <a class="btn ghost" href="#cennik" data-go="cennik">Zobacz cennik</a>
           </div>
         </div>
         <figure class="portrait">
-          <img src="img/linda-nguyen-portret.webp" alt="Linda Nguyen, linergistka, właścicielka gabinetu makijażu permanentnego w Tarnowie" width="983" height="1054" fetchpriority="high">
+          <img src="img/linda-nguyen-portret-2.webp" alt="Linda Nguyen, linergistka, właścicielka gabinetu makijażu permanentnego w Tarnowie" width="977" height="1044" fetchpriority="high">
           <figcaption>Linda Nguyen · linergistka</figcaption>
         </figure>
       </div>
@@ -535,11 +547,15 @@ body[data-page="kontakt"]{--bar:0px}
 
     <section class="about">
       <div class="wrap about-grid">
-        <h2 class="h-sec">O mnie</h2>
+        <div class="about-head">
+          <h2 class="h-sec">O mnie</h2>
+          <p class="about-tag">Precyzja. Doświadczenie. Indywidualne podejście.</p>
+        </div>
         <div class="txt">
-          <p>Nazywam się Linda Nguyen i od 12 lat zajmuję się makijażem permanentnym. Zaufało mi już ponad 1000 klientek.</p>
-          <p>Pracuję spokojnie i dokładnie, bez pośpiechu. Dla mnie każda klientka i każda para brwi to osobny projekt, dlatego zanim zacznę, zawsze rysuję i omawiam kształt.</p>
-          <p>Wykonuję też korekty makijażu permanentnego zrobionego w innych salonach. Taka praca bywa bardziej wymagająca niż wykonanie nowego makijażu, więc zaczynamy od konsultacji.</p>
+          <p>Od 12 lat specjalizuję się w makijażu permanentnym. Zaufało mi już ponad 1000 klientek, powierzając mi podkreślenie swojej urody.</p>
+          <p>W mojej pracy liczy się harmonia, precyzja i świadomy dobór kształtu oraz koloru. Każdy projekt poprzedzam konsultacją i dokładnym omówieniem oczekiwanego efektu. Nie działam według jednego schematu, każda twarz wymaga indywidualnego podejścia.</p>
+          <p>Zajmuję się również korektą makijażu permanentnego wykonanego w innych salonach. W takich przypadkach zaczynam od oceny obecnego pigmentu i możliwości uzyskania estetycznego efektu.</p>
+          <p class="about-quote">Piękny makijaż permanentny zaczyna się od właściwej decyzji.</p>
         </div>
       </div>
     </section>
