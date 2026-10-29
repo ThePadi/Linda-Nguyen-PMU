@@ -919,9 +919,9 @@ body[data-page="kontakt"]{--bar:0px}
 
   /* WhatsApp */
   var waBtn=document.getElementById("waBtn"),waPop=document.getElementById("waPop");
-  function waOpen(){if(menuOpen())closeMenu(true,true);setHH();waPop.hidden=false;waBtn.setAttribute("aria-expanded","true");setTimeout(function(){var a=waPop.querySelector("a");if(a)a.focus({preventScroll:true})},30)}
+  function waOpen(kb){if(menuOpen())closeMenu(true,true);setHH();waPop.hidden=false;waBtn.setAttribute("aria-expanded","true");if(kb)setTimeout(function(){var a=waPop.querySelector("a");if(a)a.focus({preventScroll:true})},30)}
   function waClose(f){if(waPop.hidden)return;waPop.hidden=true;waBtn.setAttribute("aria-expanded","false");if(f)waBtn.focus({preventScroll:true})}
-  waBtn.addEventListener("click",function(e){e.stopPropagation();waPop.hidden?waOpen():waClose(false)});
+  waBtn.addEventListener("click",function(e){e.stopPropagation();waPop.hidden?waOpen(e.detail===0):waClose(false)});
   waPop.addEventListener("click",function(e){if(e.target.closest("a"))setTimeout(function(){waClose(false)},50)});
   document.addEventListener("click",function(e){if(!waPop.hidden&&!e.target.closest(".wa"))waClose(false)});
   document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!waPop.hidden)waClose(true)});
