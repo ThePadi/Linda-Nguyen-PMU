@@ -163,6 +163,28 @@ section{padding-block:clamp(64px,9vw,112px)}
   .brand img{height:32px}
 }
 
+/* WhatsApp w nagłówku */
+.top-act{display:flex;align-items:center;gap:12px}
+.wa{position:relative}
+.wa-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:transparent;border:1px solid var(--ink);color:var(--ink);cursor:pointer;transition:background .3s,color .3s}
+.wa-btn:hover,.wa-btn[aria-expanded="true"]{background:var(--ink);color:var(--paper)}
+.wa-ic{width:21px;height:21px;display:block}
+.wa-pop{position:absolute;right:0;top:calc(100% + 12px);z-index:40;width:272px;background:var(--paper);border:1px solid var(--ink);padding:20px 20px 10px;box-shadow:0 18px 40px -22px rgba(20,20,20,.45);transform-origin:top right;animation:waIn .28s var(--ease) both}
+@keyframes waIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.wa-h{margin:0;font-family:var(--f-head);font-weight:300;font-size:1.02rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.35}
+.wa-s{margin:6px 0 10px;font-size:.88rem;color:var(--muted)}
+.wa-list{display:grid}
+.wa-list a{display:flex;align-items:center;justify-content:space-between;min-height:46px;border-top:1px solid var(--line);text-decoration:none;font-size:.9rem;letter-spacing:.04em}
+.wa-list a::after{content:"→";font-size:.9rem;opacity:.5;transition:transform .3s var(--ease),opacity .3s}
+.wa-list a:hover::after,.wa-list a:focus-visible::after{transform:translateX(4px);opacity:1}
+@media (max-width:820px){
+  .top-act{gap:2px}
+  .menu-btn{margin-right:-8px}
+  .wa-btn{border-color:transparent}
+  .wa-ic{width:23px;height:23px}
+  .wa-pop{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(var(--hh,64px) + 10px);width:auto}
+}
+
 /* menu mobilne: panel pod paskiem */
 .mnav{position:fixed;left:0;right:0;top:var(--hh,64px);bottom:0;z-index:29;display:none}
 .mnav.show{display:block}
@@ -454,8 +476,18 @@ body[data-page="kontakt"]{--bar:0px}
       <a href="#kontakt" data-go="kontakt">Kontakt</a>
       <span class="ind" aria-hidden="true"></span>
     </nav>
+    <div class="top-act">
     <a class="top-call" href="tel:+48535906518">+48 535 906 518</a>
+    <div class="wa">
+      <button class="wa-btn" type="button" id="waBtn" aria-expanded="false" aria-controls="waPop" aria-label="Napisz na WhatsApp"><svg class="wa-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.2 19.8l1.1-3.9a8.2 8.2 0 1 1 3 3z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><path d="M9.3 7.9c.25-.3.6-.35.85-.25l.5.2c.2.08.32.25.38.45l.38 1.15c.07.25 0 .5-.2.68l-.5.48c.48.98 1.27 1.77 2.25 2.25l.48-.5c.18-.2.43-.27.68-.2l1.15.38c.2.06.37.18.45.38l.2.5c.1.25.05.6-.25.85-.6.48-1.4.68-2.15.48-2.2-.6-3.95-2.35-4.55-4.55-.2-.75 0-1.55.48-2.15z" fill="currentColor"/></svg></button>
+      <div class="wa-pop" id="waPop" hidden>
+        <p class="wa-h">Napisz do mnie na WhatsApp</p>
+        <p class="wa-s">W czym mogę pomóc?</p>
+        <nav class="wa-list" aria-label="Temat wiadomości"><a href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20um%C3%B3wi%C4%87%20si%C4%99%20na%20bezp%C5%82atn%C4%85%20konsultacj%C4%99." target="_blank" rel="noopener">Bezpłatna konsultacja</a><a href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20zapyta%C4%87%20o%20makija%C5%BC%20permanentny%20brwi." target="_blank" rel="noopener">Brwi</a><a href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20zapyta%C4%87%20o%20makija%C5%BC%20permanentny%20ust." target="_blank" rel="noopener">Usta</a><a href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20zapyta%C4%87%20o%20kresk%C4%99%20permanentn%C4%85." target="_blank" rel="noopener">Kreski</a><a href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20mam%20pytanie." target="_blank" rel="noopener">Inne pytanie</a></nav>
+      </div>
+    </div>
     <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mnav" aria-label="Otwórz menu"><i aria-hidden="true"></i></button>
+    </div>
   </div>
   <span class="sweep" id="sweep" aria-hidden="true"></span>
 </header>
@@ -474,6 +506,7 @@ body[data-page="kontakt"]{--bar:0px}
     </nav>
     <div class="mnav-foot">
       <a class="btn" href="tel:+48535906518">Zadzwoń · 535 906 518</a>
+      <a class="btn ghost" href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20um%C3%B3wi%C4%87%20si%C4%99%20na%20bezp%C5%82atn%C4%85%20konsultacj%C4%99." target="_blank" rel="noopener">Napisz na WhatsApp</a>
       <p class="caps">ul. Wesoła 4 · 33-100 Tarnów</p>
     </div>
   </div>
@@ -757,13 +790,14 @@ body[data-page="kontakt"]{--bar:0px}
       <div class="wrap">
         <p class="caps">Kontakt</p>
         <h1>Umów bezpłatną konsultację</h1>
-        <p class="lead">Zadzwoń albo napisz na Instagramie lub Facebooku. Odpiszę i znajdziemy dogodny termin.</p>
+        <p class="lead">Zadzwoń albo napisz na WhatsApp, Instagramie lub Facebooku. Odpiszę i znajdziemy dogodny termin.</p>
       </div>
     </div>
     <section style="padding-top:0">
       <div class="wrap c-grid">
         <div class="c-list">
           <div class="c-row"><span class="k">Telefon</span><a class="c-phone" href="tel:+48535906518">535 906 518</a></div>
+          <div class="c-row"><span class="k">WhatsApp</span><a class="v" href="https://wa.me/48535906518" target="_blank" rel="noopener">535 906 518</a></div>
           <div class="c-row"><span class="k">Adres</span><span class="v">ul. Wesoła 4, 33-100 Tarnów</span></div>
           <div class="c-row"><span class="k">E-mail</span><a class="v" href="mailto:salon.lindanguyen@gmail.com">salon.lindanguyen@gmail.com</a></div>
           <div class="c-row"><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/pmu.lindanguyen/" target="_blank" rel="noopener">@pmu.lindanguyen</a></div>
@@ -771,6 +805,7 @@ body[data-page="kontakt"]{--bar:0px}
         </div>
         <div class="c-actions">
           <a class="btn" href="tel:+48535906518">Zadzwoń</a>
+          <a class="btn ghost" href="https://wa.me/48535906518?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20um%C3%B3wi%C4%87%20si%C4%99%20na%20bezp%C5%82atn%C4%85%20konsultacj%C4%99." target="_blank" rel="noopener">Napisz na WhatsApp</a>
           <a class="btn ghost only-touch" href="sms:+48535906518">Wyślij SMS</a>
           <a class="btn ghost" href="https://ig.me/m/pmu.lindanguyen" target="_blank" rel="noopener">Napisz na Instagramie</a>
           <a class="btn ghost" href="https://m.me/ssalon.l" target="_blank" rel="noopener">Napisz na Messengerze</a>
@@ -797,7 +832,8 @@ body[data-page="kontakt"]{--bar:0px}
     </div>
     <div class="foot-line">
       <a href="https://www.instagram.com/pmu.lindanguyen/" target="_blank" rel="noopener">Instagram</a><span class="sep" aria-hidden="true"></span>
-      <a href="https://www.facebook.com/ssalon.l/photos" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/ssalon.l/photos" target="_blank" rel="noopener">Facebook</a><span class="sep" aria-hidden="true"></span>
+      <a href="https://wa.me/48535906518" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <small>© 2026 Linda Nguyen Permanent Make Up</small>
   </div>
@@ -880,6 +916,17 @@ body[data-page="kontakt"]{--bar:0px}
     if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}});
   mbtn.addEventListener("keydown",function(e){if(e.key==="Tab"&&menuOpen()&&!e.shiftKey){e.preventDefault();mnav.querySelector(".mnav-links a").focus()}});
   window.addEventListener("resize",function(){if(window.innerWidth>820)closeMenu(true)});
+
+  /* WhatsApp */
+  var waBtn=document.getElementById("waBtn"),waPop=document.getElementById("waPop");
+  function waOpen(){if(menuOpen())closeMenu(true,true);setHH();waPop.hidden=false;waBtn.setAttribute("aria-expanded","true");setTimeout(function(){var a=waPop.querySelector("a");if(a)a.focus({preventScroll:true})},30)}
+  function waClose(f){if(waPop.hidden)return;waPop.hidden=true;waBtn.setAttribute("aria-expanded","false");if(f)waBtn.focus({preventScroll:true})}
+  waBtn.addEventListener("click",function(e){e.stopPropagation();waPop.hidden?waOpen():waClose(false)});
+  waPop.addEventListener("click",function(e){if(e.target.closest("a"))setTimeout(function(){waClose(false)},50)});
+  document.addEventListener("click",function(e){if(!waPop.hidden&&!e.target.closest(".wa"))waClose(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!waPop.hidden)waClose(true)});
+  mbtn.addEventListener("click",function(){waClose(false)});
+  window.addEventListener("scroll",function(){if(!waPop.hidden&&window.innerWidth<=820)waClose(false)},{passive:true});
 
   /* galeria */
   var figs=[].slice.call(document.querySelectorAll("#gal .ph"));
