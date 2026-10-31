@@ -16,9 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 320'%3E%3Crect width='200' height='320' rx='100' fill='%23EEEDEA'/%3E%3Cg fill='none' stroke='%23141414' stroke-width='9'%3E%3Crect x='14' y='14' width='172' height='292' rx='86'/%3E%3Cpath d='M66 70V258M42 236H122M66 76L140 198M140 70V214' stroke-width='14'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preload" href="fonts/josefin-sans-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BeautySalon","name":"Linda Nguyen Permanent Make Up","description":"Makijaż permanentny brwi, ust i kresek w Tarnowie","telephone":"+48535906518","email":"salon.lindanguyen@gmail.com","priceRange":"400–900 zł","image":"https://thepadi.github.io/Linda-Nguyen-PMU/img/og.jpg","hasMap":"https://www.google.com/maps/search/?api=1&query=Weso%C5%82a+4%2C+33-100+Tarn%C3%B3w","areaServed":"Tarnów","founder":{"@type":"Person","name":"Linda Nguyen","jobTitle":"Linergistka"},"address":{"@type":"PostalAddress","streetAddress":"ul. Wesoła 4","postalCode":"33-100","addressLocality":"Tarnów","addressCountry":"PL"},"sameAs":["https://www.instagram.com/pmu.lindanguyen/","https://www.facebook.com/ssalon.l/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","ratingCount":"52"}}
-</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BeautySalon", "name": "Linda Nguyen Permanent Make Up", "description": "Makijaż permanentny brwi, ust i kresek w Tarnowie", "telephone": "+48535906518", "email": "salon.lindanguyen@gmail.com", "priceRange": "400–900 zł", "image": "https://thepadi.github.io/Linda-Nguyen-PMU/img/og.jpg", "hasMap": "https://www.google.com/maps/search/?api=1&query=Weso%C5%82a+4%2C+33-100+Tarn%C3%B3w", "areaServed": "Tarnów", "founder": {"@type": "Person", "name": "Linda Nguyen", "jobTitle": "Linergistka"}, "address": {"@type": "PostalAddress", "streetAddress": "ul. Wesoła 4", "postalCode": "33-100", "addressLocality": "Tarnów", "addressCountry": "PL"}, "sameAs": ["https://www.instagram.com/pmu.lindanguyen/", "https://www.facebook.com/ssalon.l/"], "openingHours": "Mo-Fr 12:00-20:00"}</script>
 <style>
 @font-face {
   font-family: 'Josefin Sans';
@@ -404,6 +402,16 @@ section{padding-block:clamp(64px,9vw,112px)}
 .faq details p{padding-bottom:22px;color:var(--muted);max-width:64ch}
 .faq details[open] p{animation:rise .4s var(--ease)}
 
+.rev-more{margin-top:clamp(24px,3vw,36px);display:flex}
+.gbtn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;border:1px solid var(--line);font-family:var(--f-body);font-weight:400;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink);transition:border-color .3s,background .3s}
+.gbtn svg{width:15px;height:15px;flex-shrink:0}
+.gbtn:hover{border-color:var(--ink);background:var(--paper-2)}
+.hours{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:2px;max-width:340px}
+.hours li{display:flex;justify-content:space-between;gap:16px;padding:5px 10px;margin:0 -10px;font-size:.98rem}
+.hours li.today{background:var(--paper-2);font-weight:400}
+.hours li.today span:first-child::after{content:" · dziś";color:var(--muted);font-weight:300}
+@media (max-width:820px){.gbtn{font-size:.8125rem;letter-spacing:.12em}}
+
 /* kontakt */
 .c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:start}
 .c-list{display:grid;border-top:1px solid var(--ink)}
@@ -547,7 +555,7 @@ body[data-page="kontakt"]{--bar:0px}
       <div class="wrap">
         <div class="fact"><b>12 lat</b><span>doświadczenia</span></div>
         <div class="fact"><b>1000+</b><span>zadowolonych klientek</span></div>
-        <div class="fact"><b>200+</b><span>opinii na Google</span></div>
+        <div class="fact"><b>5,0</b><span>215 opinii na Google</span></div>
         <div class="fact"><b>0 zł</b><span>konsultacja przed zabiegiem</span></div>
       </div>
     </section>
@@ -597,7 +605,7 @@ body[data-page="kontakt"]{--bar:0px}
       <div class="wrap">
         <div class="sec-head rev-head">
           <h2 class="h-sec" style="flex:1">Opinie klientek</h2>
-          <p class="caps muted">200+ opinii na Google · 100% poleca na Facebooku</p>
+          <p class="caps muted">5,0 z 215 opinii na Google · 100% poleca na Facebooku</p>
         </div>
         <div class="revs">
           <figure class="rev">
@@ -613,6 +621,7 @@ body[data-page="kontakt"]{--bar:0px}
             <figcaption>Kasia · Facebook</figcaption>
           </figure>
         </div>
+        <div class="rev-more"><a class="gbtn" href="https://www.google.com/maps/search/?api=1&amp;query=Linda+Nguyen+Makija%C5%BC+Permanentny+Tarn%C3%B3w&amp;query_place_id=ChIJXc4A_gKbPUcRr_ZNy6NePao" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.3 5.8.7-4.3 4 1.1 5.7L12 16.5l-5.1 2.8 1.1-5.7-4.3-4 5.8-.7z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>Zobacz opinie na Google</a></div>
       </div>
     </section>
 
@@ -798,7 +807,9 @@ body[data-page="kontakt"]{--bar:0px}
         <div class="c-list">
           <div class="c-row"><span class="k">Telefon</span><a class="c-phone" href="tel:+48535906518">535 906 518</a></div>
           <div class="c-row"><span class="k">WhatsApp</span><a class="v" href="https://wa.me/48535906518" target="_blank" rel="noopener">535 906 518</a></div>
+          <div class="c-row"><span class="k">Godziny</span><ul class="hours" id="hours"><li data-d="1"><span>Poniedziałek</span><span>12:00–20:00</span></li><li data-d="2"><span>Wtorek</span><span>12:00–20:00</span></li><li data-d="3"><span>Środa</span><span>12:00–20:00</span></li><li data-d="4"><span>Czwartek</span><span>12:00–20:00</span></li><li data-d="5"><span>Piątek</span><span>12:00–20:00</span></li><li data-d="6"><span>Sobota</span><span>nieczynne</span></li><li data-d="0"><span>Niedziela</span><span>nieczynne</span></li></ul></div>
           <div class="c-row"><span class="k">Adres</span><span class="v">ul. Wesoła 4, 33-100 Tarnów</span></div>
+          <div class="c-row"><span class="k">Opinie</span><a class="v" href="https://www.google.com/maps/search/?api=1&amp;query=Linda+Nguyen+Makija%C5%BC+Permanentny+Tarn%C3%B3w&amp;query_place_id=ChIJXc4A_gKbPUcRr_ZNy6NePao" target="_blank" rel="noopener">5,0 z 215 opinii na Google</a></div>
           <div class="c-row"><span class="k">E-mail</span><a class="v" href="mailto:salon.lindanguyen@gmail.com">salon.lindanguyen@gmail.com</a></div>
           <div class="c-row"><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/pmu.lindanguyen/" target="_blank" rel="noopener">@pmu.lindanguyen</a></div>
           <div class="c-row"><span class="k">Facebook</span><a class="v" href="https://www.facebook.com/ssalon.l/" target="_blank" rel="noopener">Permanent Make up Linda Nguyen</a></div>
@@ -928,6 +939,8 @@ body[data-page="kontakt"]{--bar:0px}
   mbtn.addEventListener("click",function(){waClose(false)});
   window.addEventListener("scroll",function(){if(!waPop.hidden&&window.innerWidth<=820)waClose(false)},{passive:true});
 
+  /* godziny: dzisiaj */
+  var hd=document.querySelector('#hours li[data-d="'+new Date().getDay()+'"]');if(hd)hd.classList.add("today");
   /* galeria */
   var figs=[].slice.call(document.querySelectorAll("#gal .ph"));
   var gf=document.getElementById("galFilter");
